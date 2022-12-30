@@ -1,0 +1,334 @@
+/* ! Header CSS */
+
+.basic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10rem;
+  padding: 0 8.5rem;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  color: var(--white);
+  transition: opacity 2s, transform 300ms;
+  /* background-color: red; */
+}
+.mobile-nav {
+  display: none;
+}
+.sticky.nav--hidding {
+  transform: translateY(-14rem);
+}
+
+.sticky {
+  position: fixed;
+}
+.logo-img {
+  font-size: 1.2rem;
+}
+.basic-nav-items {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 6rem;
+}
+
+.basic-nav-items li {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.basic-nav-items li::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: var(--white);
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+}
+
+.basic-nav-items li:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.basic-dots-btn {
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.basic-dots-btn span {
+  display: block;
+  width: 5.5px;
+  height: 5.5px;
+  background-color: var(--white);
+  margin-right: 3px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.basic-dots-btn:hover span:first-child {
+  transform: translateX(-2.5px);
+}
+.basic-dots-btn:hover span:last-child {
+  transform: translateX(2.5px);
+}
+.menu-heading {
+  display: none;
+}
+
+/*! Video section */
+.basic-videos {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-home-poster-reel {
+  width: 100%;
+  height: 100vh;
+  /* display: none; */
+}
+.intro-home-poster-reel video {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.intro-home-video {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* z-index: 3; */
+}
+.intro-home-video video {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+.show {
+  visibility: hidden;
+}
+
+.controlbar {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  bottom: 30px;
+  left: 0;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.controlbar-time {
+  display: block;
+  transform: translateX(-4%);
+  transition: transform 200ms var(--ease-out-soft);
+}
+/* ! Hover btn */
+.button-cricle {
+  position: absolute;
+  top: calc(50% - 6rem);
+  left: calc(50% - 6rem);
+  /* transform: translate(-50%, -50%); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn-hover {
+  transition: opacity 300ms var(--ease-out-soft);
+}
+.onPage-circle {
+  transition: opacity 300ms var(--ease-out-soft);
+}
+
+.reel-btn {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  cursor: none;
+  color: var(--tuatara);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.btn-under-text {
+  text-align: center;
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.reel-btn > span:not(.btn-bg) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0.1rem;
+  overflow: hidden;
+  z-index: 1;
+  color: var(--tuatara);
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition: opacity 0.2s var(--ease-out-soft) 0.1s;
+}
+.reel-btn > span:not(.btn-bg) span {
+  display: inline-block;
+  margin-top: 0;
+  transform: none;
+}
+.reel-btn > span:not(.btn-bg):nth-child(2) span {
+  transform: translateY(100%);
+  transition: transform 1s var(--ease-out-soft) 0.1s;
+}
+.reel-btn > span:not(.btn-bg):nth-child(1) span.fadeText {
+  transform: translateY(-100%);
+  transition: transform 600ms var(--ease-out-soft);
+}
+
+.btn-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: z-index 0.3s;
+}
+
+/* T///////////////////// */
+/* Work Section */
+/* B///////////////////// */
+.work {
+  position: relative;
+  border-bottom: 1px solid var(--tuatara);
+  padding-bottom: 8rem;
+}
+
+.work-container {
+  padding: 0rem 7.5rem 3rem;
+}
+
+.work-text-info {
+  column-gap: 4rem;
+  align-items: start;
+}
+.work-text {
+  padding: 3.8em 8.4em 0 0;
+  width: 100%;
+}
+
+.work-text p {
+  font-size: 3.6rem;
+  color: var(--tuatara);
+  font-weight: 500;
+  padding-bottom: 6rem;
+}
+.work-btn {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.work-big-text {
+  justify-self: end;
+}
+
+.work-big-text h1 {
+  display: inline-block;
+  font-size: 20rem;
+  font-weight: 800;
+  color: var(--tuatara);
+  display: flex;
+  align-items: center;
+}
+.big-text-circle {
+  font-size: 9rem;
+  border: 10px solid var(--tuatara);
+  padding: 0.03em 0.3em;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+/* work image  */
+.work-img {
+  gap: 2rem;
+}
+.work-img-section {
+  width: 100%;
+  height: 100%;
+}
+.scale-div {
+  width: 97%;
+  height: 80%;
+  overflow: hidden;
+}
+.work-img-section img,
+.work-img-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.work-img-section img {
+  transform: scale(1.1);
+  transition: transform 500ms ease-in-out;
+}
+.work-img-section:hover img {
+  transform: scale(1);
+}
+
+.work-img-section h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  padding-left: 1.2em;
+  color: var(--tuatara);
+}
+
+.work-img-section:hover h2 {
+  text-decoration: underline 1.5px solid var(--tuatara);
+}
+.work-img-section p {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--tuatara);
+  line-height: 1.3;
+  padding: 0.8em 14em 0 1.8em;
+}
+
+.work-end-num {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1.6rem;
+}
+.work-end-num span {
+  font-size: 1.4rem;
+}
+.dot-circle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--tuatara);
+  border-radius: 50%;
+  justify-self: end;
+  display: block;
+}
