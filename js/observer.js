@@ -67,7 +67,6 @@ function blackWhiteBackground(color1, color2) {
 
 function locomoSectionCallback(entries, observer) {
   const [entry] = entries;
-
   if (!entry.isIntersecting) {
     blackWhiteBackground("#f4f4f4", "#252422");
     viewAllBtn.classList.remove("viewInDark");
