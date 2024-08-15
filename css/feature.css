@@ -258,11 +258,14 @@
   font-weight: 700;
 }
 .locomo-video {
-  position: relative;
+  position: sticky;
+  top: 10px;
+  height: 80%;
 }
 
 .locomo-video video {
   width: 98%;
+  height: 100%;
   padding-left: rem;
   object-fit: cover;
   overscroll-behavior: contain;

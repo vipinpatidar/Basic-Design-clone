@@ -181,6 +181,8 @@ let startPoint;
 let scrollLeftDistance;
 let isOnScreen;
 
+interBtnSection.style.useSelect = "none";
+
 interBtnSection.addEventListener("mousedown", function (e) {
   interArrows.style.opacity = 1;
   movinginterBtn.classList.add("active");

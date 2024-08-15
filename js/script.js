@@ -29,36 +29,23 @@ const controlBarTime = document.querySelector(".controlbar-time");
 const dragBtnSection = document.querySelector(".drag-drop-section");
 const dragArrows = document.querySelector(".arrows-drag");
 
-let trans = -4;
-let second = 0;
-let shift;
 let time;
 
 // control bar time runing showed
 
 function runTime() {
-  // transform translateX
-  shift = setInterval(() => {
-    trans = trans + 0.1;
-    controlBarTime.style.transform = `translateX(${trans}%)`;
-    if (trans >= 100) {
-      trans = 0;
-      clearInterval(shift);
-    }
-  }, 58);
-
-  //second
-
+  // Update transform and text content every 16ms (approximately 60fps)
   time = setInterval(() => {
-    second++;
-    controlBarTime.textContent = `00:${
-      second <= 9 ? "0" + second : second
-    }/00:59`;
-    if (second >= 59) {
-      second = 0;
-      clearInterval(time);
+    const currentTime = introVideo.currentTime;
+    const duration = introVideo.duration;
+    if (!introVideo.paused) {
+      // add a small threshold (0.1 seconds)
+      controlBarTime.style.transform = `translateX(${
+        (currentTime / duration) * 100
+      }%)`;
+      controlBarTime.textContent = `00:${Math.floor(currentTime)}/00:59`;
     }
-  }, 1000);
+  }, 16);
 }
 
 // Putting hover effect and playing reel
@@ -112,11 +99,8 @@ const onClickMovingBtn = function () {
 const onClickIntorPageVideo = function () {
   introVideo.pause();
   introVideo.currentTime = 0;
-  trans = -4;
-  second = 0;
-  clearInterval(shift);
   clearInterval(time);
-  controlBarTime.style.transform = `translateX(${trans}%)`;
+  controlBarTime.style.transform = `translateX(${0}%)`;
   opacity(movingPlayBtn, 1);
   opacity(headerOfPage, 1);
   addAndRemove(introPageVideo, introPageReel);
@@ -128,6 +112,7 @@ const onClickIntorPageVideo = function () {
 introVideo.onended = function () {
   onClickIntorPageVideo();
   opacity(onPageCircleBtn, 1);
+  controlBarTime.style.transform = "translateX(100%)";
 };
 
 // ! mouse move and mouse leave on Play reel btn
