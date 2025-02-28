@@ -13,6 +13,7 @@ const headerCallback = function (entries) {
   if (!entry.isIntersecting) {
     headerOfPage.classList.add("sticky");
     headerOfPage.style.backgroundColor = "#f4f4f4";
+    headerOfPage.style.boxShadow= "0px 3px 20px rgba(0, 0, 0, 0.07)";
     headerDotsBtn.forEach((dotsBtn) => {
       dotsBtn.style.backgroundColor = "#000";
     });
